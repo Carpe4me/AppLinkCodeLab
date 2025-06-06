@@ -1,9 +1,11 @@
 package com.example.codelab.applink
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -16,15 +18,26 @@ import com.example.codelab.applink.ui.theme.AppLinkCodeLabTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Receive the intent action and data
+        val action: String? = intent?.action;
+        val data: Uri? = intent?.data;
         enableEdgeToEdge()
         setContent {
             AppLinkCodeLabTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                // Add a Column to print a message per line
+                Column {
+                    // Print it on the home screen
+                    Greeting("Android")
+                    Text(text = "Action: $action")
+                    Text(text = "Data: $data")
                 }
+//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+//                    Greeting(
+//                        name = "Android",
+//                        modifier = Modifier.padding(innerPadding)
+//                    )
+//                }
             }
         }
     }

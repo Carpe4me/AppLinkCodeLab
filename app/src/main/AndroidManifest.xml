@@ -21,7 +21,58 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+<!--                <action android:name="android.intent.action.VIEW"/>-->
+<!--                <category android:name="android.intent.category.BROWSABLE"/>-->
+<!--                <category android:name="android.intent.category.DEFAULT"/>-->
+<!--                <data android:scheme="food"/>-->
+<!--                <data android:path="/restaurants/keybabs"/>-->
+
+<!--                &lt;!&ndash; Web link configuration &ndash;&gt;-->
+<!--                <data android:scheme="http"/>-->
+<!--                <data android:scheme="https"/>-->
+<!--                <data android:host="sabs-deeplinks-test.web.app"/>-->
+<!--                <data android:path="/restaurants/keybabs/order/latest.html"/>-->
             </intent-filter>
+
+            <!-- Replace deep link and web link configuration with this -->
+            <!-- Please update the host with your own domain -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="https"/>
+                <data android:host="example.com"/>
+                <data android:pathPrefix="/restaurants"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="https"/>
+                <data android:host="github.com"/>
+                <data android:pathPrefix="/Carpe4me"/>
+            </intent-filter>
+
+            <!-- AppLink 설정을 위한 인텐트 필터 -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- HTTPS 스킴만 사용합니다. -->
+                <data android:scheme="https" />
+
+                <!-- assetlinks.json 파일이 호스팅되는 도메인을 설정합니다. -->
+                <!-- GitHub Pages를 사용하는 경우, 일반적으로 <사용자명>.github.io 형식입니다. -->
+                <data android:host="carpe4me.github.io" />
+
+                <!-- 특정 경로를 지정하고 싶다면 data android:pathPrefix 또는 android:pathPattern 등을 사용할 수 있습니다. -->
+                <!-- 예시: /mypath 로 시작하는 경로만 앱으로 열고 싶을 때 -->
+                <!-- <data android:pathPrefix="/mypath" /> -->
+                <!-- 모든 경로를 처리하려면 path 관련 data 태그를 생략하거나 "/" 로 설정할 수 있습니다. -->
+                <!-- 하지만 AppLink는 구체적인 경로를 지정하는 것이 일반적입니다. -->
+            </intent-filter>
+
         </activity>
     </application>
 
