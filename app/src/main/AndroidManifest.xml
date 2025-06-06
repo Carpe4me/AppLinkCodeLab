@@ -44,14 +44,6 @@
                 <data android:host="example.com"/>
                 <data android:pathPrefix="/restaurants"/>
             </intent-filter>
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="https"/>
-                <data android:host="github.com"/>
-                <data android:pathPrefix="/Carpe4me"/>
-            </intent-filter>
 
             <!-- AppLink 설정을 위한 인텐트 필터 -->
             <intent-filter android:autoVerify="true">
@@ -68,7 +60,7 @@
 
                 <!-- 특정 경로를 지정하고 싶다면 data android:pathPrefix 또는 android:pathPattern 등을 사용할 수 있습니다. -->
                 <!-- 예시: /mypath 로 시작하는 경로만 앱으로 열고 싶을 때 -->
-                <!-- <data android:pathPrefix="/mypath" /> -->
+                 <data android:pathPrefix="/mypath" />
                 <!-- 모든 경로를 처리하려면 path 관련 data 태그를 생략하거나 "/" 로 설정할 수 있습니다. -->
                 <!-- 하지만 AppLink는 구체적인 경로를 지정하는 것이 일반적입니다. -->
             </intent-filter>
